@@ -107,14 +107,14 @@ With `funny.txt` at order 3 (word mode):
 
 | Order (char) | Effect                                          |
 | ------------ | ----------------------------------------------- |
-| 2–4          | Garbled but vaguely English-sounding            |
-| 5–8          | Sweet spot (novel but coherent)                 |
+| 2-4          | Garbled but vaguely English-sounding            |
+| 5-8          | Sweet spot (novel but coherent)                 |
 | 10+          | Output starts to mirror the source text closely |
 
 | Order (word) | Effect                                                |
 | ------------ | ----------------------------------------------------- |
 | 1            | Grammatically fragmented                              |
-| 2–3          | Sweet spot - coherent sentences with surprising turns |
+| 2-3          | Sweet spot - coherent sentences with surprising turns |
 | 4+           | Output closely follows the source text                |
 
 ---
@@ -136,7 +136,7 @@ For full API documentation, see [API.md](API.md).
 **Why a separate `kgramCount` table?**
 Without it, `getFrequency(kgram)` would need to iterate the inner map and sum all frequencies - O(number of distinct tokens). By maintaining a separate count, it becomes a single O(k) hash lookup.
 
-**Character sampling** follows ASCII order (1–255) for reproducibility. A random integer in `[0, N-1]` is drawn, then characters are iterated in order with their frequencies subtracted until the value goes negative.
+**Character sampling** follows ASCII order (1-255) for reproducibility. A random integer in `[0, N-1]` is drawn, then characters are iterated in order with their frequencies subtracted until the value goes negative.
 
 **Word sampling** follows insertion order (first encountered in source text), combined with a fixed seed for reproducible output.
 
