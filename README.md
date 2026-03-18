@@ -14,7 +14,7 @@ For example, given the text:
 the cat sat on the mat the cat ate the rat
 ```
 
-A **word-level Markov Model of order 2** would learn that after `"the cat"`, the word `"sat"` appears once and `"ate"` appears once — so each has a 50% probability of being the next word. This can then be used to generate new, statistically plausible text.
+A **word-level Markov Model of order 2** would learn that after `"the cat"`, the word `"sat"` appears once and `"ate"` appears once - so each has a 50% probability of being the next word. This can then be used to generate new, statistically plausible text.
 
 ---
 
@@ -37,11 +37,11 @@ A **word-level Markov Model of order 2** would learn that after `"the cat"`, the
 
 ## Features
 
-- **Character-level generation** — predicts the next character given the previous `k` characters
-- **Word-level generation** — predicts the next word given the previous `k` words, producing more coherent output on larger texts
-- **Seeded random generation** — fully reproducible output with the same seed
-- **Efficient lookups** — `getFrequency(kgram)` runs in O(k) using a dedicated count table
-- **Pluggable corpus** — works with any plain text file
+- **Character-level generation** - predicts the next character given the previous `k` characters
+- **Word-level generation** - predicts the next word given the previous `k` words, producing more coherent output on larger texts
+- **Seeded random generation** - fully reproducible output with the same seed
+- **Efficient lookups** - `getFrequency(kgram)` runs in O(k) using a dedicated count table
+- **Pluggable corpus** - works with any plain text file
 
 ---
 
@@ -75,19 +75,19 @@ java [-cp bin] TextGenerator <order> <length> <filename> [mode]
 
 ### Examples
 
-**Character mode** — order 6, generate 500 characters:
+**Character mode** - order 6, generate 500 characters:
 
 ```bash
 java -cp bin TextGenerator 6 500 funny.txt
 ```
 
-**Word mode** — order 2, generate 80 words:
+**Word mode** - order 2, generate 80 words:
 
 ```bash
 java -cp bin TextGenerator 2 80 funny.txt word
 ```
 
-**Word mode** — order 3, generate 60 words:
+**Word mode** - order 3, generate 60 words:
 
 ```bash
 java -cp bin TextGenerator 3 60 funny.txt word
@@ -114,7 +114,7 @@ With `funny.txt` at order 3 (word mode):
 | Order (word) | Effect                                                |
 | ------------ | ----------------------------------------------------- |
 | 1            | Grammatically fragmented                              |
-| 2–3          | Sweet spot — coherent sentences with surprising turns |
+| 2–3          | Sweet spot - coherent sentences with surprising turns |
 | 4+           | Output closely follows the source text                |
 
 ---
@@ -130,7 +130,7 @@ For full API documentation, see [API.md](API.md).
 **Data structure:** `HashMap<String, LinkedHashMap<String, Integer>>`
 
 - Outer key: kgram string
-- Inner map: next token → frequency count
+- Inner map: next token -> frequency count
 - `LinkedHashMap` preserves insertion order for deterministic word-mode sampling
 
 **Why a separate `kgramCount` table?**
